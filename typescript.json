@@ -1,0 +1,62 @@
+{
+	// Place your snippets for TypeScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+  },
+  "Component store": {
+    "prefix": "cst",
+    "body": [
+      "import { Reducer } from 'redux';",
+      "import initialState from './initialState';",
+      "import { $TM_FILENAME_BASE as actionTypes } from './actionTypes';",
+      "import { $TM_FILENAME_BASE$VM } from '../models/$TM_FILENAME_BASE$VM';",
+      "import { ApplicationState } from '../models/ApplicationState';",
+      "",
+      "//state",
+      "export interface $TM_FILENAME_BASE$State extends $TM_FILENAME_BASE$VM {",
+      "",
+      "}",
+      "",
+      "//actions",
+      "interface $1 {",
+      "  type: string;",
+      "}",
+      "",
+      "//known actions",
+      "type KnownActions = $1;",
+      "",
+      "//action creators",
+      "export const actionCreators = {",
+      " $2",
+      "}",
+      "",
+      "//reducer",
+      "export const reducer: Reducer<$TM_FILENAME_BASE$State> =(state: ApplicationState = initialState.$3, action: KnownActions) => {",
+      "  switch (action.type) {",
+      "    default: ",
+      "      return { ...state };",
+      "  }",
+      "};"
+    ],
+    "description": "Most of the store file for any given component"
+  },
+  "Named import": {
+    "prefix": "nimp",
+    "body": "import { $2 } from '$1';",
+    "description": "Named import"
+  },
+  "Default import": {
+    "prefix": "dimp",
+    "body": "import $2 from '$1';",
+    "description": "Named import"
+  }
+}
